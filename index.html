@@ -1,50 +1,42 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Icd9 by jackwasey</title>
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/main.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Icd9 : ICD-9 CM code manipulation and validation in R">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Icd9</title>
   </head>
+
   <body>
 
-      <header>
-        <h1>Icd9</h1>
-        <p>ICD-9 CM code manipulation and validation in R</p>
-      </header>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/jackwasey/icd9">View on GitHub</a>
 
-      <div id="banner">
-        <span id="logo"></span>
+          <h1 id="project_title">Icd9</h1>
+          <h2 id="project_tagline">ICD-9 CM code manipulation and validation in R</h2>
 
-        <a href="https://github.com/jackwasey/icd9" class="button fork"><strong>View On GitHub</strong></a>
-        <div class="downloads">
-          <span>Downloads:</span>
-          <ul>
-            <li><a href="https://github.com/jackwasey/icd9/zipball/master" class="button">ZIP</a></li>
-            <li><a href="https://github.com/jackwasey/icd9/tarball/master" class="button">TAR</a></li>
-          </ul>
-        </div>
-      </div><!-- end banner -->
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/jackwasey/icd9/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/jackwasey/icd9/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
 
-    <div class="wrapper">
-      <nav>
-        <ul></ul>
-      </nav>
-      <section>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
         
 
 <h1>
 <a id="icd9" class="anchor" href="#icd9" aria-hidden="true"><span class="octicon octicon-link"></span></a>icd9</h1>
 
-<p><a href="https://travis-ci.org/jackwasey/icd9"><img src="https://travis-ci.org/jackwasey/icd9.svg?branch=master" alt="Build Status"></a> <a href="https://coveralls.io/r/jackwasey/icd9?branch=master"><img src="https://coveralls.io/repos/jackwasey/icd9/badge.svg?branch=master" alt="Coverage Status"></a></p>
+<p><a href="https://travis-ci.org/jackwasey/icd9"><img src="https://travis-ci.org/jackwasey/icd9.svg?branch=master" alt="Build Status"></a> <a href="https://coveralls.io/r/jackwasey/icd9?branch=master"><img src="https://coveralls.io/repos/jackwasey/icd9/badge.svg?branch=master" alt="Coverage Status"></a> <a href="https://cran.r-project.org/package=icd9"><img src="http://www.r-pkg.org/badges/version/icd9" alt="CRAN version"></a> <a href="https://cran.r-project.org/package=icd9"><img src="http://cranlogs.r-pkg.org/badges/icd9" alt="CRAN RStudio mirror downloads"></a> (RStudio mirror only)</p>
 
 <h1>
 <a id="icd-9-comorbidities-manipulation-and-validation" class="anchor" href="#icd-9-comorbidities-manipulation-and-validation" aria-hidden="true"><span class="octicon octicon-link"></span></a>ICD-9 comorbidities, manipulation and validation</h1>
@@ -57,7 +49,7 @@
 
 <ul>
 <li>  several mappings of ICD-9 codes to comorbidities are included (Quan, Deyo, Elixhauser, AHRQ)</li>
-<li>  very fast assignment of ICD-9 codes to comorbidities (using C++ internally, with automatic parallel execution using OpenMP when possible)</li>
+<li>  very fast assignment of ICD-9 codes to comorbidities (using C and C++ internally, with automatic parallel execution using OpenMP when available)</li>
 </ul>
 </li>
 <li>  Charlson and Van Walvaren score calculations</li>
@@ -74,6 +66,7 @@
 <li>  further performance increases: 1 million ICD-9 codes assigned to comorbidities in a couple of seconds</li>
 <li>  logical matrix or data.frame for comorbidity output and manipulation</li>
 <li>  see NEWS.md and github <a href="https://github.com/jackwasey/icd9/commits/master">changelog</a> for more details</li>
+<li>  minor update to fix an obscure memory leak found with address sanitizer.</li>
 </ul>
 
 <h2>
@@ -84,7 +77,7 @@
 <h2>
 <a id="relevance" class="anchor" href="#relevance" aria-hidden="true"><span class="octicon octicon-link"></span></a>Relevance</h2>
 
-<p>ICD-9 codes are still in wide use around the world, particularly in the USA where the ICD-9-CM (Clinical Modification) is in widespread use. ICD-10 and the corresponding ICD-10-CM are imminent, however a vast amount of patient data is recorded with ICD-9 codes of some kind: this package enables their use in R. A common requirement for medical research involving patients is determining new or existing comorbidities. This is often reported in <em>Table 1</em> of research papers to demonstrate the similarity or differences of groups of patients. This package is focussed on fast and accurate generation of this comorbidity information from raw lists of ICD-9 codes.</p>
+<p>ICD-9 codes are still in heavy use around the world, particularly in the USA where the ICD-9-CM (Clinical Modification) is in widespread use. ICD-10 and the corresponding ICD-10-CM are imminent, however a vast amount of patient data is recorded with ICD-9 codes of some kind: this package enables their use in R. A common requirement for medical research involving patients is determining new or existing comorbidities. This is often reported in <em>Table 1</em> of research papers to demonstrate the similarity or differences of groups of patients. This package is focussed on fast and accurate generation of this comorbidity information from raw lists of ICD-9 codes.</p>
 
 <h2>
 <a id="icd-9-code-types" class="anchor" href="#icd-9-code-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>ICD-9 code types</h2>
@@ -96,7 +89,7 @@
 
 <p>See the vignette and code help for many more. Here's a taste:</p>
 
-<div class="highlight highlight-r"><pre><span class="pl-smi">patientData</span>
+<div class="highlight highlight-source-r"><pre><span class="pl-smi">patientData</span>
 <span class="pl-c">#&gt;   visitId  icd9  poa</span>
 <span class="pl-c">#&gt; 1    1000 40201    Y</span>
 <span class="pl-c">#&gt; 2    1000  2258 &lt;NA&gt;</span>
@@ -136,7 +129,7 @@ icd9FilterPoa(<span class="pl-smi">patientData</span>)
 
 <p>The latest version is available in <a href="https://github.com/jackwasey/icd9">github</a> and can be installed with:</p>
 
-<pre><code># install.packages("devtools") # if needed
+<pre><code>install.packages("devtools") # if needed
 devtools::install_github("jackwasey/icd9")
 
 install.packages("magrittr") # recommended, but not required
@@ -144,12 +137,16 @@ install.packages("magrittr") # recommended, but not required
 
 <p>The <em>master</em> branch at github should always build and pass all tests and R CMD check, and will be similar or identical to the most recent CRAN release. The CRAN releases are stable milestones. Contributions and bug reports are encouraged.</p>
       </section>
-      <footer>
-        <p>Project maintained by <a href="https://github.com/jackwasey">jackwasey</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Icd9 maintained by <a href="https://github.com/jackwasey">jackwasey</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+
               <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
@@ -160,6 +157,7 @@ install.packages("magrittr") # recommended, but not required
             pageTracker._trackPageview();
             } catch(err) {}
           </script>
+
 
   </body>
 </html>
